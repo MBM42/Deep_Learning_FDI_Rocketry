@@ -2,7 +2,6 @@
 /.vscode/
 /Auxiliary/
 /Data/
-/Aux_Pkg/ad_aux.py
 /Simulations/__pycache__/
 /Simulations/Decks/
 /Simulations/Data/
@@ -15,6 +14,7 @@
 /Models/Preprocessing_Pkg/ad_npy_preprocessing.py
 /Models/Preprocessing_Pkg/ad_sliding_window.py
 /Models/Aux_Pkg/__pycache__/
+/Models/Aux_Pkg/ad_aux.py
 /Models/Headers_Pkg/__pycache__/
 /Models/Custom_NN_Pkg/__pycache__/
 /Models/FNN_Trained_Models/
@@ -27,7 +27,7 @@
 /Models/AE/
 /Models/PosprocessingScripts/AD_LSTM_inference.py
 /Models/PosprocessingScripts/AD_LSTM_plot_inference.py
-/Model/AD_LSTM_Optuna.py
+/Models/AD_LSTM_Optuna.py
 /Models/AD_LSTM_main.py
 /Models/AD_LSTM_settings.py
 
