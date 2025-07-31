@@ -101,9 +101,12 @@ Each simulation is based on a randomly generated trajectory, whose variability i
 Upon execution the user is presented a GUI to allow easy parameter selection:
 
 <div align="center">
-  <img src="./Images/sim_gen_gui.png" alt="GUI" width="100%">
+  <img src="./Images/sim_gen_gui.png" alt="GUI" width="30%">
 </div>
 
+The default model and simulation time are predifined. For the current release only the "HFM_01_2" is available. The user can select the type of simulation, normal or, in the case of a fault, which class of fault. Additionaly, the programm can produce batches of simulations, for which the user can define the number of simulations.
+
+The output are CSV files with one-hot label encoding, that are saved and organized in folders under the "Data" directory.
 Produces a CSV file where the faults are labelled with "1" and normal behavior with "0".
 
 To use this script the current OS directory should be the "Simulations" folder. This way the script creates and saves the generated data in the corresponding folders.
