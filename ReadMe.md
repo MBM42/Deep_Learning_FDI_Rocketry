@@ -15,8 +15,19 @@ The project encompasses two main Python-based frameworks:
 - **Simulations:** Synthetic time-series data generation using an EcosimPro digital twin.
 - **Models:** For model training and performance evaluation. Using an FNN and an LSTM.
 
-Two neural network models, a feedforward neural network (FNN) and a long short-term memory (LSTM) are trained on the generated synthetic. The FNN serves as a baseline model, whereas the LSTM was chosen for its recurrent architecture and gatet memory mechanisms, allowing it to better capture dependencies in time-series data.
- 
+Two neural network models, a feedforward neural network (FNN) and a long short-term memory (LSTM) are trained on the generated synthetic. The FNN serves as a baseline model, whereas the LSTM was chosen for its recurrent architecture and gated memory mechanisms, allowing it to better capture dependencies in time-series data.
+
+Dataset summary:
+- 37 Features:
+  - Thrust
+  - Temperature
+  - Pressure
+  - Mass Flow
+  - Valve Positions
+- 63 Faults
+  - 14 System
+  - 48 Sensors
+
 The complete workflow is depicted in the figure below:
 
 <div align="center">
@@ -26,11 +37,36 @@ The complete workflow is depicted in the figure below:
 ## 2. Goals
 
 - **1. Validate the suitability of deep learning models for fault identification in rocketry:** Up until this research endeavor, machine learning applications in the context of rocketry were restricted to plain fault detection.
-- **2. Achieve high fault identification accuracy with low latency:** With concrete performance goals of an **F1 score > 0.9** and **Identification Delay < 50 ms**.
+- **2. Achieve high fault identification accuracy with low latency:** With concrete performance goals of an F1 score > 0.9 and Identification Delay < 50 ms.
 - **3. Confirm the expected better performance of the LSTM model**
 - **4. Build a scalable and adaptable framework:** So that upon new iterations of the hopper the proposed 
 
 ## 3. Performance and Goal Assessment
+
+As expected, the LSTM model superseded the FNN's performance.
+
+The main takeways for the LSTM performance are summarized below:
+- Overall F1 Score: 0.8257
+- Faults correctly identified in 91% of the simulation (959 in total)
+- Best performing fault classes:
+  - Pipe Blockage:
+    - Precision: 0.996
+    - Recall: 0.987
+    - Ident. Delay: 30 ms
+  - Sensor Drift:
+    - Precision: 0.999
+    - Recall: 0.989
+    - Ident. Delay: 90 ms
+- Best peforming fault:
+  - Sensor Drift in Oxidizer Tank Outlet Pressure reading: 100% Identification Accuracy.
+- Worse performing fault classes:
+  - Valve Faults:
+    - Precision: 0.411
+    - Recall: 0.131
+    - Ident. Delay: 8 s
+    - Reason: Due to abmiguous labelling, highlighting the importance of data quality and labelling.
+
+
 
 
 ## 4. Built With
@@ -43,9 +79,11 @@ The complete workflow is depicted in the figure below:
 
 ### 5.1 EcosimPro Model
 
-Model developed by Saravjit Singh
+Model developed by Saravjit Singh:
 
-![EcosimPro](./Images/EcosimPro_model.png)
+<div align="center">
+  <img src="./Images/EcosimPro_model.png" alt="EcosimPro" width="100%">
+</div>
 
 ### 5.2 data_gen.py
 
@@ -66,8 +104,6 @@ To train any of models the current OS directory should be that of the correspond
 ```
 source myenv/bin/activate (myenv: virtual environment)
 ```
-
-## Write Later
 
 ## Installation
 ```
