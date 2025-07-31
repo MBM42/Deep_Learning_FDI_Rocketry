@@ -19,7 +19,7 @@ Two neural network models, a feedforward neural network (FNN) and a long short-t
  
 The complete workflow is depicted in the figure below:
 
-<div style="text-align: center;">
+<div align="center">
   <img src="./Images/workflow.drawio.jpg" alt="Workflow" width="40%">
 </div>
 
@@ -30,7 +30,7 @@ The complete workflow is depicted in the figure below:
 - **3. Confirm the expected better performance of the LSTM model**
 - **4. Build a scalable and adaptable framework:** So that upon new iterations of the hopper the proposed 
 
-## 3. Outcomes and Goal Assessment
+## 3. Performance and Goal Assessment
 
 
 ## 4. Built With
