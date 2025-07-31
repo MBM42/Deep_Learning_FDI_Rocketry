@@ -101,7 +101,7 @@ Each simulation is based on a randomly generated trajectory, whose variability i
 Upon execution the user is presented a GUI to allow easy parameter selection:
 
 <div align="center">
-  <img src="./Images/sim_gen_gui.png" alt="GUI" width="30%">
+  <img src="./Images/sim_gen_gui.png" alt="GUI" width="50%">
 </div>
 
 The default model and simulation time are predifined. For the current release only the "HFM_01_2" is available. The user can select the type of simulation, normal or, in the case of a fault, which class of fault. Additionaly, the programm can produce batches of simulations, for which the user can define the number of simulations.
