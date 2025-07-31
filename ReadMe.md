@@ -25,8 +25,15 @@ Dataset summary:
   - Mass Flow
   - Valve Positions
 - 63 Faults
-  - 14 System
-  - 48 Sensors
+  - 14 System:
+    - Pipe Blockage
+    - Pipe Leak
+    - Pipe Blockage + Leak
+    - Slow Valve
+  - 48 Sensors:
+    - Drift
+    - Bias
+    - Freeze
 
 The complete workflow is depicted in the figure below:
 
@@ -75,17 +82,27 @@ The main takeways for the LSTM performance are summarized below:
 - ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)  
 - ![EcosimPro](https://img.shields.io/badge/EcosimPro-blue?style=for-the-badge)
 
-## 5. Simulations
+## 5. Simulations Framework
+
+The *data_gen.py* consists of the main script in charge of streamling the generation of hopper launch simulations based on its EcosimPro digital twin.
+
+Each simulation is based on a randomly generated trajectory, whose variability is provided changing maximum thrust, target height and initial propellant mass.
 
 ### 5.1 EcosimPro Model
 
-Model developed by Saravjit Singh:
+**"HFM_01_2"** model developed by Saravjit Singh:
 
 <div align="center">
   <img src="./Images/EcosimPro_model.png" alt="EcosimPro" width="100%">
 </div>
 
-### 5.2 data_gen.py
+### 5.2 *data_gen.py*
+
+Upon execution the user is presented a GUI to allow easy parameter selection:
+
+<div align="center">
+  <img src="./Images/sim_gen_gui.png" alt="GUI" width="100%">
+</div>
 
 Produces a CSV file where the faults are labelled with "1" and normal behavior with "0".
 
