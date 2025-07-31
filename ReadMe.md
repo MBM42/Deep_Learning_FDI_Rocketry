@@ -6,7 +6,7 @@ This project explores the use of deep learning for fault detection and identific
 
 The research report is available in the respective folder.
 
-Two neural network models—a feedforward neural network (FNN) and a long short-term memory (LSTM) network—are trained on synthetic time-series data generated using an EcosimPro-based digital twin. The objective is to evaluate whether such models can meet the accuracy, latency, and adaptability requirements of real-time FDI in aerospace systems. 
+<!---Two neural network models—a feedforward neural network (FNN) and a long short-term memory (LSTM) network—are trained on synthetic time-series data generated using an EcosimPro-based digital twin. The objective is to evaluate whether such models can meet the accuracy, latency, and adaptability requirements of real-time FDI in aerospace systems. -->
 
 ## How It's Made
 
