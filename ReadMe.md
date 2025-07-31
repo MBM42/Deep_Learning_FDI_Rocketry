@@ -1,4 +1,16 @@
-# Branch: Miguel Barros Marques
+# Deep Learning for Fault Detection Identification (FDI) in Rocketry
+
+**Author:** Miguel Marques
+
+This project explores the use of deep learning for fault detection and identification (FDI) for a small hopper vehicle of TUM's chair of Space Mobility and Propulsion. 
+
+The research report is available in the respective folder.
+
+Two neural network models—a feedforward neural network (FNN) and a long short-term memory (LSTM) network—are trained on synthetic time-series data generated using an EcosimPro-based digital twin. The objective is to evaluate whether such models can meet the accuracy, latency, and adaptability requirements of real-time FDI in aerospace systems. 
+
+## How It's Made
+
+**Tech used:** Python, PyTorch, EcosimPro
 
 ## EcosimPro Model
 
