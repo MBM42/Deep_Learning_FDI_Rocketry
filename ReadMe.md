@@ -88,7 +88,7 @@ Each simulation is based on a randomly generated trajectory, whose variability i
 
 **"HFM_01_2"** model developed by Saravjit Singh:
 <div align="center">
-  <img src="./Images/EcosimPro_model.png" alt="EcosimPro" width="100%">
+  <img src="./Images/EcosimPro_model.png" alt="EcosimPro" width="90%">
 </div>
 
 ### 5.2 *data_gen.py*
@@ -108,7 +108,7 @@ The output consists of CSV files with one-hot label encoding, that are saved and
 
 Below follows a figure illustrating the complete data generation framework:
 <div align="center">
- <img src="./Images/data_gen.drawio.jpg" alt="data_gen" width="40%">
+ <img src="./Images/data_gen.drawio.jpg" alt="data_gen" width="50%">
 </div>
 
 
