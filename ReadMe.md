@@ -112,7 +112,7 @@ Below follows a figure illustrating the complete data generation framework:
 ## 6. Models
 
 <div align="center">
- <img src="./Images/Preprocess.drawio-1.png" alt="preprocess" width="50%">
+ <img src="./Images/Preprocess.drawio-1.png" alt="preprocess" width="30%">
 </div>
 
 
