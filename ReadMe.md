@@ -111,6 +111,16 @@ Below follows a figure illustrating the complete data generation framework:
 
 ## 6. Models
 
+Both the FNN and LSTM models follow a unified workflow to promote code reusability and ensure consistent comparison of results. 
+
+The LSTM framework is outlined below. The FNN model shares the same structure, with the main differences located in the *FNN_main.py* and *FNN_settings.py* files, as opposed to *LSTM_main.py* and *LSTM_settings.py*.
+
+<div align="center">
+ <img src="./Images/LSTM_framework.drawio-1.png" alt="LSTM" width="50%">
+</div>
+
+
+
 <div align="center">
  <img src="./Images/Preprocess.drawio-1.png" alt="preprocess" width="30%">
 </div>
@@ -119,9 +129,6 @@ Below follows a figure illustrating the complete data generation framework:
 
 ### 6.1 *LSTM_main.py*
 
-<div align="center">
- <img src="./Images/LSTM_framework.drawio-1.png" alt="LSTM" width="50%">
-</div>
 
 ### 6.2 *FNN_main.py*
 

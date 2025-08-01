@@ -11,12 +11,12 @@ from dataclasses import dataclass, field
 
 @dataclass
 class LSTMHyperparameters:
-    hidden_dim: int = 256          # Neurons per hidden Layer
+    hidden_dim: int = 256         # Neurons per hidden Layer
     num_layers: int = 2           # Number of LSTM layers
     drop_prob: float = 0.24       # Dropout probability
     learning_rate: float = 0.001  # Learning rate for the optimizer
     batch_size: int = 512         # Batch size for training
-    num_epochs: int = 60           # Number of training epochs
+    num_epochs: int = 60          # Number of training epochs
     bidirectional: bool = False   # Bidirectionality
     clip_grad_norm: float = None  # Maximum L2 gradient for gradient clipping
 
@@ -39,7 +39,7 @@ class LSTMSettings:
     create_test_set: bool = False      # True: Creates train, validation and test sets; False: Only creates train and validation sets
     save_datasets: bool = True         # True: Saves the Validation (and Test Datasets if created)
     normalize_weights: bool = True     # True: Normalize calculated class weights (doesn't apply to the manual weights)
-    use_manual_weights: bool = True   # True: Uses Manual Weights defined in "weights.py"
+    use_manual_weights: bool = True    # True: Uses Manual Weights defined in "weights.py"
 
     # SlidingWindow (class):
     window_size: int = 11              # Number of consecutive timestamps to include in each sliding window transformation of the data.
@@ -55,10 +55,10 @@ class LSTMSettings:
     # Loss Function:
     use_focal_loss: bool = True        # True: Custom Focal Loss (focal_loss.py); False: CrossEntropyLoss
     gamma_fl: int = 0.0002             # Scaling factor (gamma) for the focal loss
-    apply_class_weights: bool = True  # True: Apply class weights to the loss function
+    apply_class_weights: bool = True   # True: Apply class weights to the loss function
 
     # Optimizer:
-    decay: float = 0.0002                # L2 Regularization Parameter (float). If set to 0.0 L2 regularization is not performed
+    decay: float = 0.0002              # L2 Regularization Parameter (float). If set to 0.0 L2 regularization is not performed
 
     # Learning Rate Scheduler:
     scheduler_mode: str = 'min'        # Mode for ReduceLROnPlateau scheduler: 'min': (lr reduced when quantity monitored has stopped decreasing)

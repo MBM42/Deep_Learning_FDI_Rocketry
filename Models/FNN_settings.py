@@ -11,10 +11,10 @@ from dataclasses import dataclass, field
 
 @dataclass
 class FNNHyperparameters:
-    hidden_dim: int = 64        # Neurons per hidden Layer
-    drop_prob: float = 0.2      # Dropout probability
-    learning_rate: float = 0.001 # Learning rate for optimizer
-    batch_size: int = 512        # Batch size for training
+    hidden_dim: int = 64          # Neurons per hidden Layer
+    drop_prob: float = 0.2        # Dropout probability
+    learning_rate: float = 0.001  # Learning rate for optimizer
+    batch_size: int = 512         # Batch size for training
     num_epochs: int = 60          # Number of epochs
 
 @dataclass
@@ -36,7 +36,7 @@ class FNNSettings:
     create_test_set: bool = False      # True: Creates train, validation and test sets; False: Only creates train and validation sets
     save_datasets: bool = True         # True: Saves the Validation (and Test Datasets if created)
     normalize_weights: bool = True     # True: Normalize calculated class weights (doesn't apply to the manual weights)
-    use_manual_weights: bool = True   # True: Uses Manual Weights defined in "weights.py"
+    use_manual_weights: bool = True    # True: Uses Manual Weights defined in "weights.py"
 
     # SlidingWindow (class):
     window_size: int = 10              # Number of consecutive timestamps to include in each sliding window transformation of the data.
@@ -47,15 +47,15 @@ class FNNSettings:
     flatten_window: bool = True        # True: Flatten Window Input to 1D (FNN); False: Input Window is kept as a 2D tensor (LSTM)
     save_debug_sample: bool = False    # Call ".save_debug_samples" method from "SlidingWindow" Class: saves window samples from a .npy file for debug
     debug_type: str = 'Block'          # Type of file to debug e.g.: 'Normal', 'Valve', etc.
-    debug_windows: int = 11           # Number of windows to collect
+    debug_windows: int = 11            # Number of windows to collect
 
     # Loss Function:
     use_focal_loss: bool = False       # True: Custom Focal Loss (focal_loss.py); False: CrossEntropyLoss
-    gamma_fl: int = 1.13                  # Scaling factor (gamma) for the focal loss
-    apply_class_weights: bool = False   # True: Apply class weights to the loss function
+    gamma_fl: int = 1.13               # Scaling factor (gamma) for the focal loss
+    apply_class_weights: bool = False  # True: Apply class weights to the loss function
 
     # Optimizer:
-    decay: float = 0.0001                # L2 Regularization Parameter (float). If set to 0.0 L2 regularization is not performed
+    decay: float = 0.0001              # L2 Regularization Parameter (float). If set to 0.0 L2 regularization is not performed
 
     # Learning Rate Scheduler:
     scheduler_mode: str = 'min'        # Mode for ReduceLROnPlateau scheduler: 'min': (lr reduced when quantity monitored has stopped decreasing)
