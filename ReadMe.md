@@ -37,7 +37,7 @@ Dataset summary:
 
 The complete workflow is depicted in the figure below:
 <div align="center">
-  <img src="./Images/workflow.drawio.jpg" alt="Workflow" width="40%">
+  <img src="./Images/workflow.drawio.jpg" alt="Workflow" width="50%">
 </div>
 
 ## 2. Goals
