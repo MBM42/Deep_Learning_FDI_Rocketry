@@ -36,7 +36,6 @@ Dataset summary:
     - Freeze
 
 The complete workflow is depicted in the figure below:
-
 <div align="center">
   <img src="./Images/workflow.drawio.jpg" alt="Workflow" width="40%">
 </div>
@@ -52,7 +51,7 @@ The complete workflow is depicted in the figure below:
 
 As expected, the LSTM model superseded the FNN's performance.
 
-The main takeways for the LSTM performance are summarized below:
+The main takeaways for the LSTM performance are summarized below:
 - Overall F1 Score: 0.8257
 - Faults correctly identified in 91% of the simulation (959 in total)
 - Best performing fault classes:
@@ -64,17 +63,14 @@ The main takeways for the LSTM performance are summarized below:
     - Precision: 0.999
     - Recall: 0.989
     - Ident. Delay: 90 ms
-- Best peforming fault:
+- Best performing fault:
   - Sensor Drift in Oxidizer Tank Outlet Pressure reading: 100% Identification Accuracy.
 - Worse performing fault classes:
   - Valve Faults:
     - Precision: 0.411
     - Recall: 0.131
     - Ident. Delay: 8 s
-    - Reason: Due to abmiguous labelling, highlighting the importance of data quality and labelling.
-
-
-
+    - Reason: Due to ambiguous labelling, highlighting the importance of data quality and labelling.
 
 ## 4. Built With
 
@@ -84,14 +80,13 @@ The main takeways for the LSTM performance are summarized below:
 
 ## 5. Simulations Framework
 
-The *data_gen.py* consists of the main script in charge of streamling the generation of hopper launch simulations based on its EcosimPro digital twin.
+The *data_gen.py* consists of the main script in charge of streamlining the generation of hopper launch simulations based on its EcosimPro digital twin.
 
 Each simulation is based on a randomly generated trajectory, whose variability is provided changing maximum thrust, target height and initial propellant mass.
 
 ### 5.1 EcosimPro Model
 
 **"HFM_01_2"** model developed by Saravjit Singh:
-
 <div align="center">
   <img src="./Images/EcosimPro_model.png" alt="EcosimPro" width="100%">
 </div>
@@ -99,25 +94,41 @@ Each simulation is based on a randomly generated trajectory, whose variability i
 ### 5.2 *data_gen.py*
 
 Upon execution the user is presented a GUI to allow easy parameter selection:
-
 <div align="center">
   <img src="./Images/sim_gen_gui.png" alt="GUI" width="50%">
 </div>
 
-The default model and simulation time are predifined. For the current release only the "HFM_01_2" is available. The user can select the type of simulation, normal or, in the case of a fault, which class of fault.
+The default model and simulation time are predefined. For the current release only the "HFM_01_2" is available. The user can select the type of simulation, normal or, in the case of a fault, which class of fault.
 
 - **Number of Simulations:** User defined, to allow generation of batches of simulations.
 - **Trajectory Print:** ON: Prints trajectory computation information to the console.
-- **Thrust/Position Plots:** ON: Saves plots of thurst and position (height) over time, under the "Plots" directory.
+- **Thrust/Position Plots:** ON: Saves plots of thrust and position (height) over time, under the "Plots" directory.
 
-The output are CSV files with one-hot label encoding, that are saved and organized in folders under the "Data" directory.
-Produces a CSV file where the faults are labelled with "1" and normal behavior with "0".
+The output consists of CSV files with one-hot label encoding, that are saved and organized in folders under the "Data" directory.
 
-To use this script the current OS directory should be the "Simulations" folder. This way the script creates and saves the generated data in the corresponding folders.
+Below follows a figure illustrating the complete data generation framework:
+<div align="center">
+ <img src="./Images/data_gen.drawio.jpg" alt="data_gen" width="40%">
+</div>
+
 
 ## 6. Models
 
 ## 7. Installation 
+
+
+### Prerequisites
+- Python 3.8+ (tested with Python 3.9, 3.10, 3.11)
+- pip package manager
+
+### Setup
+1. Clone the repository
+2. Create a virtual environment (recommended)
+3. Install dependencies: `pip install -r requirements.txt`
+4. Run setup verification: `python -c "import your_main_module"`
+
+
+To use this script the current OS directory should be the "Simulations" folder. This way the script creates and saves the generated data in the corresponding folders.
 
 ## 8. Future Work
 
