@@ -3,8 +3,6 @@
 **Author:** Miguel Marques  
 **Release Date:** June 2025
 
-(Work in progress)
-
 ## 1. About The Project
 
 This project explores the use of deep learning for fault detection and identification (FDI) for a small hopper vehicle of TUM's chair of Space Mobility and Propulsion.
@@ -111,8 +109,21 @@ Below follows a figure illustrating the complete data generation framework:
  <img src="./Images/data_gen.drawio.jpg" alt="data_gen" width="50%">
 </div>
 
-
 ## 6. Models
+
+<div align="center">
+ <img src="./Images/Preprocess.drawio-1.png" alt="preprocess" width="50%">
+</div>
+
+
+
+### 6.1 *LSTM_main.py*
+
+<div align="center">
+ <img src="./Images/LSTM_framework.drawio-1.png" alt="LSTM" width="50%">
+</div>
+
+### 6.2 *FNN_main.py*
 
 ## 7. Installation 
 
