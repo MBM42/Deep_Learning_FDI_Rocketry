@@ -116,14 +116,28 @@ Both the FNN and LSTM models follow a unified workflow to promote code reusabili
 The LSTM framework is outlined below. The FNN model shares the same structure, with the main differences located in the *FNN_main.py* and *FNN_settings.py* files, as opposed to *LSTM_main.py* and *LSTM_settings.py*.
 
 <div align="center">
- <img src="./Images/LSTM_framework.drawio-1.png" alt="LSTM" width="50%">
+ <img src="./Images/LSTM_framework.drawio-1.png" alt="LSTM" width="60%">
 </div>
 
+The models operate on input data in *NPY* format, which significantly reduces both spatial and temporal complexity during training. Upon loading, the data is processed through the ***Preprocessing_Pkg***, which includes two key scripts.
+
+- ***npy_processing.py*:** splits the dataset into training and validation subsets while computing global statistics. These include class distribution and imbalance metrics, as well as mean and standard deviation for normalization.
+
+- ***sliding_window.py*:** segments the time-series data into fixed-length sequences, as defined in the corresponding *\<model>\_settings.py* file. These sequences are normalized using the previously computed statistics. (While caching all sliding windows would accelerate training, memory limitations prevent this, making on-the-fly preprocessing the only feasible approach.)
 
 
+A key distinction between the FNN and LSTM models arises at this stage. For the LSTM, the sliding windows preserve the original 2D temporal structure of the data. In contrast, the FNN requires these sequences to be flattened into 1D vectors, which leads to a partial loss of temporal dependency information.
+
+The diagram below illustrates the full preprocessing pipeline:
 <div align="center">
  <img src="./Images/Preprocess.drawio-1.png" alt="preprocess" width="30%">
 </div>
+
+### Data Preprocessing
+
+
+
+
 
 
 
