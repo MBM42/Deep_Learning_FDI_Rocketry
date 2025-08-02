@@ -150,35 +150,56 @@ The diagram below illustrates the full preprocessing pipeline:
 </div>
 
 
-## 7. Installation
+### 6.2 Optuna Optimization
+
+## 7. Installation and Usage
 
 ### Setup
 
 1. Clone the repository:
-```
-git clone https://github.com/MBM42/Deep_Learning_FDI_Rocketry.git
-```
+
+`git clone https://github.com/MBM42/Deep_Learning_FDI_Rocketry.git`
+
 
 ### 7.1 Simulations
 
 #### Prerequisites
 
 - Python 3.11+ 
-- To use this script the current OS directory should be the "Simulations" folder.
+- The current OS directory shall be "Simulations".
 - The *data_gen.py* script must be executed within an Windows environment.
 
 ### 7.2 Models
 
 #### Prerequisites
 
+- Python 3.10
+- The current OS directory shall be the folder to which the repository is cloned to.
+
+#### Install Dependencies
+
+
+#### Script Sequence
+
+1. ***preprocess.py:*** To convert data from *csv* to *npy* format. Use *n_first_timestamps* to define fault clipping.
+2. ***\<model\>_main.py:*** With the desired settings defined in the corresponding file.
+3. ***\<model\>_inference.py:*** In the output folder, used for inference.
+
+#### Example Run
+
+An already preprocessed example dataset is provided under the *Data* folder, already preprocessed. This allows to understand model training, the structure of the output and also how the inference scrip works.
+
+The example debug dataset has no data categories (*\<model\>_settings.py*):
+```
+data_types: list = field(default_factory=lambda: ['.'])
+```
+This setting shall be modified depending on the dataset structure, such as:
+``` 
+data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'Block_Leak', 'Sensor_Fault'])
+```
 
 
 
-
-
-### Prerequisites
-- Python 3.8+ (tested with Python 3.9, 3.10, 3.11)
-- pip package manager
 
 ### Setup
 1. Clone the repository
@@ -187,18 +208,11 @@ git clone https://github.com/MBM42/Deep_Learning_FDI_Rocketry.git
 4. Run setup verification: `python -c "import your_main_module"`
 
 
-To use this script the current OS directory should be the "Simulations" folder. This way the script creates and saves the generated data in the corresponding folders.
 
 ## 8. Future Work
 
 To train any of models the current OS directory should be that of the corresponding model.
 
-
-## Code Example
-
-```
-source myenv/bin/activate (myenv: virtual environment)
-```
 
 ## Installation
 ```

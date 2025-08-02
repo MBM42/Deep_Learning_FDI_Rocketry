@@ -23,8 +23,8 @@ class LSTMHyperparameters:
 @dataclass
 class LSTMSettings:
     # Data Settings:
-    data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'Block_Leak', 'Sensor_Fault'])
-    #data_types: list = field(default_factory=lambda: ['.'])
+    #data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'Block_Leak', 'Sensor_Fault'])
+    data_types: list = field(default_factory=lambda: ['.'])
     data_folder: str = "../Data/New_Data_clip_npy"
     
     # Model Definitions:
@@ -58,7 +58,7 @@ class LSTMSettings:
     apply_class_weights: bool = True   # True: Apply class weights to the loss function
 
     # Optimizer:
-    decay: float = 0.0002              # L2 Regularization Parameter (float). If set to 0.0 L2 regularization is not performed
+    decay: float = 0.0002               # L2 Regularization Parameter (float). If set to 0.0 L2 regularization is not performed
 
     # Learning Rate Scheduler:
     scheduler_mode: str = 'min'        # Mode for ReduceLROnPlateau scheduler: 'min': (lr reduced when quantity monitored has stopped decreasing)

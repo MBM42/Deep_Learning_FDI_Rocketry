@@ -1,7 +1,8 @@
 /__pycache__/
 /.vscode/
 /Auxiliary/
-/Data/
+/Data/New_Data_npy
+/Data/New_Data_clip_npy
 /Simulations/__pycache__/
 /Simulations/Decks/
 /Simulations/Data/

@@ -29,7 +29,7 @@ from FNN_settings import *
 
 
 # =================== Debug Mode ===================
-debug_mode = False           # Smaller dataset and reduced number of epochs
+debug_mode = True           # Smaller dataset and reduced number of epochs
 log_mode_f = logging.DEBUG   # From which level the content of the config file is written (DEBUG or INFO)
 
 # Headers

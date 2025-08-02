@@ -20,8 +20,8 @@ class FNNHyperparameters:
 @dataclass
 class FNNSettings:
     # Data Settings:
-    data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'Block_Leak', 'Sensor_Fault'])
-    #data_types: list = field(default_factory=lambda: ['.'])
+    #data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'Block_Leak', 'Sensor_Fault'])
+    data_types: list = field(default_factory=lambda: ['.']) # For Debug mode
     data_folder: str = "../Data/New_Data_npy"
     
     # Model Definitions:
