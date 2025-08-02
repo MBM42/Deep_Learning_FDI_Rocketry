@@ -129,7 +129,7 @@ The LSTM framework is outlined below. The FNN model shares the same structure, w
 - **Custom_NN_Pkg:** Implements a custom loss function - *focal_loss.py*, as well as an early stopping logic to abort training as soon as performance has stabilized.
 - **Aux_Pkg:** Utility scripts used for model evaluation, GPU configuration and data logging.
 
-**Output**
+**Output:**
 
 Under a folder \<model\>_Trained_Models, each trained model has a subfolder with an unique timestamp identification. Inside the best model (best performing model) as well as the last model (model at the last epoch os training) can be found. accompanying postprocessing scripts allow to evaluate the model under inference.
 
@@ -150,7 +150,30 @@ The diagram below illustrates the full preprocessing pipeline:
 </div>
 
 
-## 7. Installation 
+## 7. Installation
+
+### Setup
+
+1. Clone the repository:
+```
+git clone https://github.com/MBM42/Deep_Learning_FDI_Rocketry.git
+```
+
+### 7.1 Simulations
+
+#### Prerequisites
+
+- Python 3.11+ 
+- To use this script the current OS directory should be the "Simulations" folder.
+- The *data_gen.py* script must be executed within an Windows environment.
+
+### 7.2 Models
+
+#### Prerequisites
+
+
+
+
 
 
 ### Prerequisites
