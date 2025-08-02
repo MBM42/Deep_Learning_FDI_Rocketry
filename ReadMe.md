@@ -125,7 +125,14 @@ The LSTM framework is outlined below. The FNN model shares the same structure, w
 - **LSTM:** Number of layers customizable within the model settings. Layer normalization, ReLU, dropout, optionally bidirectional.
 
 **Packages:**
-- **Headers_Pkg:**
+- **Headers_Pkg:** Scripts containing lists to define the features and labels os interest, as well as for manual class weight set.
+- **Custom_NN_Pkg:** Implements a custom loss function - *focal_loss.py*, as well as an early stopping logic to abort training as soon as performance has stabilized.
+- **Aux_Pkg:** Utility scripts used for model evaluation, GPU configuration and data logging.
+
+**Output**
+
+Under a folder \<model\>_Trained_Models, each trained model has a subfolder with an unique timestamp identification. Inside the best model (best performing model) as well as the last model (model at the last epoch os training) can be found. accompanying postprocessing scripts allow to evaluate the model under inference.
+
 
 ### 6.1 Data Preprocessing
 
@@ -142,16 +149,6 @@ The diagram below illustrates the full preprocessing pipeline:
  <img src="./Images/Preprocess.drawio-1.png" alt="preprocess" width="35%">
 </div>
 
-
-
-
-
-
-
-### 6.1 *LSTM_main.py*
-
-
-### 6.2 *FNN_main.py*
 
 ## 7. Installation 
 
