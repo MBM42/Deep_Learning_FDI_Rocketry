@@ -126,12 +126,12 @@ The LSTM framework is outlined below. The FNN model shares the same structure, w
 
 **Packages:**
 - **Headers_Pkg:** Scripts containing lists to define the features and labels os interest, as well as for manual class weight set.
-- **Custom_NN_Pkg:** Implements a custom loss function - *focal_loss.py*, as well as an early stopping logic to abort training as soon as performance has stabilized.
+- **Custom_NN_Pkg:** Implements a custom loss function, *focal_loss.py*, as well as an early stopping logic to abort training as soon as performance has stabilized.
 - **Aux_Pkg:** Utility scripts used for model evaluation, GPU configuration and data logging.
 
 **Output:**
 
-Under a folder \<model\>_Trained_Models, each trained model has a subfolder with an unique timestamp identification. Inside the best model (best performing model) as well as the last model (model at the last epoch os training) can be found. accompanying postprocessing scripts allow to evaluate the model under inference.
+Under a folder *\<model\>_Trained_Models*, each trained model has a subfolder with an unique timestamp identification. Inside the best model (best performing model) as well as the last model (model at the last epoch os training) can be found. accompanying postprocessing scripts allow to evaluate the model under inference.
 
 
 ### 6.1 Data Preprocessing
@@ -149,8 +149,15 @@ The diagram below illustrates the full preprocessing pipeline:
  <img src="./Images/Preprocess.drawio-1.png" alt="preprocess" width="35%">
 </div>
 
-
 ### 6.2 Optuna Optimization
+
+An Optuna-based hyperparameter optimization framework is provided for each model. It consists of two scripts:
+
+- ***<model>_Optuna.py:*** The main script where the user defines the hyperparameters to be tuned and their respective search ranges.
+
+- ***<model>_Optimization.py:*** A supporting script that provides a duplicate of the model's neural network architecture for use in the optimization process.
+
+The optimization results are saved in the *<model>_Optimizations* folder.
 
 ## 7. Installation and Usage
 
@@ -179,7 +186,7 @@ The diagram below illustrates the full preprocessing pipeline:
 #### Install Dependencies
 
 
-#### Script Sequence
+#### Script Use Sequence
 
 1. ***preprocess.py:*** To convert data from *csv* to *npy* format. Use *n_first_timestamps* to define fault clipping.
 2. ***\<model\>_main.py:*** With the desired settings defined in the corresponding file.
@@ -221,5 +228,3 @@ import matplotlib
 matplotlib.use('TkAgg')
 sudo apt-get install python3-tk
 ```
-
-Explain that plot_fault.py expects a certain profile of simulations
