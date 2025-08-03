@@ -3,17 +3,33 @@
 **Author:** Miguel Marques  
 **Release Date:** June 2025
 
+## Table of Contents
+- [About The Project](#1-about-the-project)
+- [Goals](#2-goals)
+- [Performance and Goal Assessment](#3-performance-and-goal-assessment)
+- [Built With](#4-built-with)
+- [Simulations Framework](#5-simulations-framework)
+  - [EcosimPro Model](#51-ecosimpro-model)
+  - [data_gen.py](#52-data_genpy)
+- [Models](#6-models)
+  - [Data Preprocessing](#61-data-preprocessing)
+  - [Optuna Optimization](#62-optuna-optimization)
+- [Installation and Usage](#7-installation-and-usage)
+  - [Simulations](#71-simulations)
+  - [Models](#72-models)
+- [Future Work](#8-future-work)
+
 ## 1. About The Project
 
 This project explores the use of deep learning for fault detection and identification (FDI) for a small hopper vehicle of TUM's chair of Space Mobility and Propulsion. Two models (an FNN and an LSTM) are trained on synthetic data from an EcosimPro digital twin.
 
-This research was developed under the scope of Master's Thesis at the Technical University of Munich (TUM). The report is available [here](./Report/Msc_Thesis_Miguel_FDI_Final.pdf).
+This research was developed as part of a Master’s Thesis at the Technical University of Munich (TUM). The full thesis report is available [here](./Report/Msc_Thesis_Miguel_FDI_Final.pdf).
 
 The project encompasses two main Python-based frameworks: 
 - **Simulations:** Synthetic time-series data generation using an EcosimPro digital twin.
 - **Models:** For model training and performance evaluation. Using an FNN and an LSTM.
 
-Two neural network models, a feedforward neural network (FNN) and a long short-term memory (LSTM) are trained on the generated synthetic. The FNN serves as a baseline model, whereas the LSTM was chosen for its recurrent architecture and gated memory mechanisms, allowing it to better capture dependencies in time-series data.
+Two neural network models, a feedforward neural network (FNN) and a long short-term memory (LSTM) are trained on the generated syntheti data. The FNN serves as a baseline model, whereas the LSTM was chosen for its recurrent architecture and gated memory mechanisms, allowing it to better capture dependencies in time-series data.
 
 Dataset summary:
 - 37 Features:
@@ -80,7 +96,7 @@ The main takeaways for the LSTM performance are summarized below:
 
 The *data_gen.py* consists of the main script in charge of streamlining the generation of hopper launch simulations based on its EcosimPro digital twin.
 
-Each simulation is based on a randomly generated trajectory, whose variability is provided changing maximum thrust, target height and initial propellant mass.
+Each simulation is based on a randomly generated trajectory, with variability introduced by changing the maximum thrust, target height, and initial propellant mass.
 
 ### 5.1 EcosimPro Model
 
@@ -96,7 +112,7 @@ Upon execution the user is presented a GUI to allow easy parameter selection:
   <img src="./Images/sim_gen_gui.png" alt="GUI" width="50%">
 </div>
 
-The default model and simulation time are predefined. For the current release only the "HFM_01_2" is available. The user can select the type of simulation, normal or, in the case of a fault, which class of fault.
+The default model and simulation time are predefined. For the current release only the "HFM_01_2" is available. The user can select the type of simulation, normal or, in the case of a fault, which class.
 
 - **Number of Simulations:** User defined, to allow generation of batches of simulations.
 - **Trajectory Print:** ON: Prints trajectory computation information to the console.
@@ -125,20 +141,20 @@ The LSTM framework is outlined below. The FNN model shares the same structure, w
 - **LSTM:** Number of layers customizable within the model settings. Layer normalization, ReLU, dropout, optionally bidirectional.
 
 **Packages:**
-- **Headers_Pkg:** Scripts containing lists to define the features and labels os interest, as well as for manual class weight set.
+- **Headers_Pkg:** Scripts containing lists to define the features and labels os interest, as well as for manually setting class weights.
 - **Custom_NN_Pkg:** Implements a custom loss function, *focal_loss.py*, as well as an early stopping logic to abort training as soon as performance has stabilized.
 - **Aux_Pkg:** Utility scripts used for model evaluation, GPU configuration and data logging.
 
 **Output:**
 
-Under a folder *\<model\>_Trained_Models*, each trained model has a subfolder with an unique timestamp identification. Inside the best model (best performing model) as well as the last model (model at the last epoch os training) can be found. accompanying postprocessing scripts allow to evaluate the model under inference.
+Under a folder *\<model\>_Trained_Models*, each trained model has a subfolder with a unique timestamp identification. Inside, both the best-performing model and the final model (from the last training epoch) can be found. Accompanying postprocessing scripts allow evaluation of the model under inference.
 
 
 ### 6.1 Data Preprocessing
 
 The models operate on input data in *NPY* format, which significantly reduces both spatial and temporal complexity during training. Upon loading, the data is processed through the ***Preprocessing_Pkg***, which includes two key scripts.
 
-- ***npy_processing.py*:** splits the dataset into training and validation subsets while computing global statistics. These include class distribution and imbalance metrics, as well as mean and standard deviation for normalization.
+- ***npy_processing.py*:** splits the dataset into training and validation subsets while computing global statistics. These include class distributions, imbalance metrics, and the mean and standard deviation used for normalization.
 
 - ***sliding_window.py*:** segments the time-series data into fixed-length sequences, as defined in the corresponding *\<model>\_settings.py* file. These sequences are normalized using the previously computed statistics. (While caching all sliding windows would accelerate training, memory limitations prevent this, making on-the-fly preprocessing the only feasible approach.)
 
@@ -173,7 +189,7 @@ The optimization results are saved in the *<model>_Optimizations* folder.
 #### Prerequisites
 
 - Python 3.11+ 
-- The current OS directory shall be "Simulations".
+- The current working directory must be "Simulations".
 - The *data_gen.py* script must be executed within an Windows environment.
 
 ### 7.2 Models
@@ -206,7 +222,7 @@ The optimization results are saved in the *<model>_Optimizations* folder.
 
 #### Example Run
 
-An already preprocessed example dataset is provided under the *Data* folder, already preprocessed. This allows to understand model training, the structure of the output and also how the inference scrip works.
+An already preprocessed example dataset is provided under the *Data* folder. This allows to understand model training, the structure of the output and also how the inference script works.
 
 The example debug dataset has no data categories (*\<model\>_settings.py*):
 ```
@@ -216,12 +232,6 @@ This setting shall be modified depending on the dataset structure, such as:
 ``` 
 data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'Block_Leak', 'Sensor_Fault'])
 ```
-
-### Setup
-1. Clone the repository
-2. Create a virtual environment (recommended)
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run setup verification: `python -c "import your_main_module"`
 
 ## 8. Future Work
 
