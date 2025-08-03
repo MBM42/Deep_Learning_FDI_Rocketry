@@ -178,13 +178,25 @@ The optimization results are saved in the *<model>_Optimizations* folder.
 
 ### 7.2 Models
 
-#### Prerequisites
+#### Prerequisites - For Windows Users
+
+- This project requires WSL2 (Windows Subsystem for Linux):
+  1. Install WSL2: `wsl --install` (in PowerShell as Administrator)
+  2. Install Ubuntu or your preferred Linux distribution
+  3. Restart your computer
+  4. Continue with installation steps below in your WSL terminal
+- Python 3.10
+- pip package manager
+
+#### Prerequisites - For macOS/Linux Users
 
 - Python 3.10
+- pip package manager
 - The current OS directory shall be the folder to which the repository is cloned to.
 
 #### Install Dependencies
 
+- `pip install -r requirements.txt`
 
 #### Script Use Sequence
 
@@ -205,9 +217,6 @@ This setting shall be modified depending on the dataset structure, such as:
 data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'Block_Leak', 'Sensor_Fault'])
 ```
 
-
-
-
 ### Setup
 1. Clone the repository
 2. Create a virtual environment (recommended)
@@ -218,6 +227,9 @@ data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'B
 
 The next objective of this project is to develop a forecasting model based on an LSTM architecture, capable of anticipating the onset of a fault and subsequently identifying the specific fault type using a redline-based thresholding logic. Initial development efforts toward this goal have already begun, although the model has not yet been finalized.
 
+
+<!---
+NO LONGER NEEDED - Kept in ReadMe for future reference and debug purposes
 ## Installation
 ```
 pip install PyQt5
@@ -225,3 +237,4 @@ import matplotlib
 matplotlib.use('TkAgg')
 sudo apt-get install python3-tk
 ```
+-->
