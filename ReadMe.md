@@ -153,9 +153,9 @@ The diagram below illustrates the full preprocessing pipeline:
 
 An Optuna-based hyperparameter optimization framework is provided for each model. It consists of two scripts:
 
-- ***<model>_Optuna.py:*** The main script where the user defines the hyperparameters to be tuned and their respective search ranges.
+- ***\<model\>_Optuna.py:*** The main script where the user defines the hyperparameters to be tuned and their respective search ranges.
 
-- ***<model>_Optimization.py:*** A supporting script that provides a duplicate of the model's neural network architecture for use in the optimization process.
+- ***\<model\>_Optimization.py:*** A supporting script that provides a duplicate of the model's neural network architecture for use in the optimization process.
 
 The optimization results are saved in the *<model>_Optimizations* folder.
 
@@ -214,12 +214,9 @@ data_types: list = field(default_factory=lambda: ['Normal', 'Valve', 'Block', 'B
 3. Install dependencies: `pip install -r requirements.txt`
 4. Run setup verification: `python -c "import your_main_module"`
 
-
-
 ## 8. Future Work
 
-To train any of models the current OS directory should be that of the corresponding model.
-
+The next objective of this project is to develop a forecasting model based on an LSTM architecture, capable of anticipating the onset of a fault and subsequently identifying the specific fault type using a redline-based thresholding logic. Initial development efforts toward this goal have already begun, although the model has not yet been finalized.
 
 ## Installation
 ```
