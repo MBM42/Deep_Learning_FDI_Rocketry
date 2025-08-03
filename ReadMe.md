@@ -1,6 +1,6 @@
 # Deep Learning for FDI in Rocketry
 
-**Author:** Miguel Marques  
+**Author:** Miguel Marques   
 **Release Date:** June 2025
 
 ## Table of Contents
